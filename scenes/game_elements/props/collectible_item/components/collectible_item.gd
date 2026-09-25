@@ -1,10 +1,11 @@
 # SPDX-FileCopyrightText: The Threadbare Authors
 # SPDX-License-Identifier: MPL-2.0
 @tool
-class_name CollectibleItem extends Node2D
+class_name CollectibleItem
+extends SceneLink
 
 ## Overworld collectible that can be interacted with. When a player interacts
-## with it, an [InventoryItem] is added to the [Inventory]
+## with it, an [InventoryItem] is added to the [InventoryState].
 
 ## Wether the collectible can be seen or collected. This allows the collectible
 ## to be placed in the scene even when some condition has to be met for it to
@@ -13,9 +14,6 @@ class_name CollectibleItem extends Node2D
 	set(new_value):
 		revealed = new_value
 		_update_based_on_revealed()
-
-## If provided, switch to this scene after collecting and possibly displaying a dialogue.
-@export_file("*.tscn") var next_scene: String
 
 ## [InventoryItem] provided by this collectible when interacted with.
 @export var item: InventoryItem:
@@ -40,6 +38,7 @@ class_name CollectibleItem extends Node2D
 
 
 func _validate_property(property: Dictionary) -> void:
+	super._validate_property(property)
 	match property.name:
 		"dialogue_title":
 			if not collected_dialogue:
@@ -47,9 +46,10 @@ func _validate_property(property: Dictionary) -> void:
 
 
 func _get_configuration_warnings() -> PackedStringArray:
+	var warnings := super._get_configuration_warnings()
 	if not item:
-		return ["item property must be set"]
-	return []
+		warnings.append("item property must be set")
+	return warnings
 
 
 func _set_item(new_value: InventoryItem) -> void:
@@ -59,15 +59,16 @@ func _set_item(new_value: InventoryItem) -> void:
 		sprite_2d.texture = item.get_world_texture() if item else null
 
 	if interact_area:
-		interact_area.action = "Collect " + item.type_name() if item else "Collect"
+		interact_area.action_text = (tr("Collect %s") % item.type_name() if item else tr("Collect"))
 
 	update_configuration_warnings()
 
 
 func _ready() -> void:
+	super._ready()
+
 	_set_item(item)
 	_update_based_on_revealed()
-	sprite_2d.modulate = Color.WHITE if revealed else Color.TRANSPARENT
 
 	if Engine.is_editor_hint():
 		return
@@ -75,12 +76,22 @@ func _ready() -> void:
 	interact_area.interaction_started.connect(self._on_interacted)
 
 
-## Make the collectible appear
+## Make the collectible appear with an animation, ultimately setting [member revealed].
+##
+## This does nothing if [member revealed] is [code]true[/code], or if the collectible is already
+## being revealed.
+##
+## To reveal the collectible immediately without any animation or sound, set [member revealed]
+## directly.
 func reveal() -> void:
-	revealed = true
+	if revealed or animation_player.current_animation == &"reveal":
+		return
+
 	appear_sound.play()
 	animation_player.play("reveal")
 	await animation_player.animation_finished
+
+	revealed = true
 
 
 ## When interacted with, the collectible will display a brief animation
@@ -91,7 +102,7 @@ func _on_interacted(player: Player, _from_right: bool) -> void:
 	animation_player.play("collected")
 	await animation_player.animation_finished
 
-	GameState.add_collected_item(item)
+	GameState.quest.inventory.add_collected_item(item)
 
 	if collected_dialogue:
 		DialogueManager.show_dialogue_balloon(collected_dialogue, dialogue_title, [self, player])
@@ -101,8 +112,11 @@ func _on_interacted(player: Player, _from_right: bool) -> void:
 	queue_free()
 
 	if next_scene:
-		GameState.set_challenge_start_scene(next_scene)
-		SceneSwitcher.change_to_file_with_transition(next_scene)
+		if GameState.quest:
+			GameState.quest.challenge_start_scene = next_scene
+		else:
+			push_warning("Collectible collected while not on a quest")
+		switch()
 
 
 func _update_based_on_revealed() -> void:
@@ -110,5 +124,6 @@ func _update_based_on_revealed() -> void:
 		interact_area.disabled = not revealed
 	if sprite_2d:
 		sprite_2d.visible = revealed
+		sprite_2d.modulate = Color.WHITE if revealed else Color.TRANSPARENT
 	if physical_collider:
 		physical_collider.disabled = not revealed

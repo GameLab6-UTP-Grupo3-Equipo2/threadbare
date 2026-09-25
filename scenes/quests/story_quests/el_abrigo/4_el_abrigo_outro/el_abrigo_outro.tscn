@@ -51,7 +51,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_flnpk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 10.0
 }]
@@ -88,7 +88,7 @@ editor_draw_limits = true
 [node name="OnTheGround" type="Node2D" parent="." unique_id=120484108]
 y_sort_enabled = true
 
-[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=735842756]
+[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=735842756 groups=["player"]]
 position = Vector2(400, 349)
 sprite_frames = ExtResource("3_7j76p")
 animation = &"idle"
@@ -157,7 +157,7 @@ position = Vector2(750, 208)
 [node name="Cinematic" type="Node2D" parent="." unique_id=471937151]
 script = ExtResource("4_qrcvu")
 dialogue = ExtResource("5_soumh")
-next_scene = "uid://cufkthb25mpxy"
+target = 1
 metadata/_custom_type_script = "uid://x1mxt6bmei2o"
 
 [node name="Rock" parent="." unique_id=553827148 instance=ExtResource("7_dkqu7")]

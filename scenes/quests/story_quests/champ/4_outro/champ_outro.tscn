@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -52,7 +52,7 @@ editor_draw_limits = true
 [node name="OnTheGround" type="Node2D" parent="." unique_id=484328888]
 y_sort_enabled = true
 
-[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=34892077]
+[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=34892077 groups=["player"]]
 position = Vector2(400, 349)
 sprite_frames = ExtResource("3_276wt")
 animation = &"idle"
@@ -63,7 +63,7 @@ autoplay = "idle"
 [node name="Cinematic" type="Node2D" parent="." unique_id=2129269220]
 script = ExtResource("4_jdkp3")
 dialogue = ExtResource("5_f2mqr")
-next_scene = "uid://cufkthb25mpxy"
+target = 1
 metadata/_custom_type_script = "uid://x1mxt6bmei2o"
 
 [node name="Champ" type="CharacterBody2D" parent="." unique_id=514818323]

@@ -97,6 +97,21 @@ var hook_string: Line2D
 ## This can be used to pan or zoom the camera to frame the ending of the grappling hook.
 @onready var hook_ending: Marker2D = $HookEnding
 
+## A [PhantomCamera2D] at the tip of the string.
+@onready var phantom_camera_2d: PhantomCamera2D = %PhantomCamera2D
+
+## Plays a sound effect when the string is thrown.
+@onready var throw_audio_player: AudioStreamPlayer2D = %ThrowAudioPlayer
+
+## Plays a sound effect while the string hits the air.
+@onready var hit_air_audio_player: AudioStreamPlayer2D = %HitAirAudioPlayer
+
+## Plays a sound effect when the string hits a hookable area.
+@onready var hooked_audio_player: AudioStreamPlayer2D = %HookedAudioPlayer
+
+## Plays a sound effect when the string hits a wall.
+@onready var hit_wall_audio_player: AudioStreamPlayer2D = %HitWallAudioPlayer
+
 
 func _enter_tree() -> void:
 	if not character and get_parent() is CharacterBody2D:
@@ -149,7 +164,11 @@ func hooked(_new_hooked_to: HookableArea, is_loop: bool) -> void:
 	if not hook_string:
 		hook_string = _new_hook_string()
 	hook_string.add_point(p, 0)
+	CameraUtilities.copy_current_camera_limits(phantom_camera_2d)
+	phantom_camera_2d.priority = 20
 	hook_ending.global_position = p
+	throw_audio_player.play()
+	hooked_audio_player.play()
 	areas_hooked.append(_new_hooked_to)
 	if not _new_hooked_to.hook_control:
 		# The area hooked doesn't have a control to aim from it, so start pulling:
@@ -180,6 +199,8 @@ func hit_wall(wall_point: Vector2) -> void:
 		hook_string = _new_hook_string()
 	hook_string.add_point(wall_point, 0)
 	areas_hooked.append(null)
+	throw_audio_player.play()
+	hit_wall_audio_player.play()
 
 
 ## Called when a throw has hit the air.
@@ -190,6 +211,8 @@ func hit_air(air_point: Vector2) -> void:
 		hook_string = _new_hook_string()
 	hook_string.add_point(air_point, 0)
 	areas_hooked.append(null)
+	throw_audio_player.play()
+	hit_air_audio_player.play()
 
 
 ## Remove the [member hook_string].
@@ -217,6 +240,7 @@ func remove_string() -> void:
 	hook_control.release()
 	hook_control.state = HookControl.State.AIMING
 
+	phantom_camera_2d.priority = 0
 	hook_ending.global_position = global_position
 
 
@@ -254,6 +278,7 @@ func pull_string() -> void:
 	if character.has_method("take_control"):
 		character.take_control(self)
 	character.set_collision_mask_value(Enums.CollisionLayers.NON_WALKABLE_FLOOR, false)
+	phantom_camera_2d.priority = 0
 
 	# If the entity has a got_pulled handler, call it and connect to the pull_released signal
 	# of the HookableArea. The entity is responsible to call it.

@@ -10,23 +10,25 @@ extends Marker2D
 ## which SpawnPoint was used (or if no SpawnPoint at all was used).
 signal player_teleported
 
+const GROUP_NAME := "spawn_point"
+
 @export var look_at_side_on_spawn: Enums.LookAtSide = Enums.LookAtSide.UNSPECIFIED
 
 
 func _init() -> void:
-	add_to_group("spawn_point", true)
+	add_to_group(GROUP_NAME, true)
 
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	if GameState.current_spawn_point == get_tree().current_scene.get_path_to(self):
+	if GameState.scene.spawn_point == get_tree().current_scene.get_path_to(self):
 		move_player_to_self_position()
 
 
 func move_player_to_self_position(smooth_camera: bool = false) -> void:
-	var player: Node2D = get_tree().get_first_node_in_group("player")
+	var player := get_tree().get_first_node_in_group("player") as Node2D
 
 	if is_instance_valid(player):
 		player.teleport_to(self.global_position, smooth_camera, look_at_side_on_spawn)

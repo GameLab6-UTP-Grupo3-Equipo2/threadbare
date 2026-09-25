@@ -3,6 +3,10 @@
 class_name SequencePuzzle
 extends Node2D
 
+## Emitted when the progress in the puzzle changes. This could be due to restoring saved state. For
+## the game change triggered by the player, see [member step_solved].
+signal progress_changed
+
 ## Emitted when the entire puzzle is solved
 signal solved
 
@@ -53,7 +57,8 @@ func _ready() -> void:
 		_find_steps(self)
 
 	for step: SequencePuzzleStep in steps:
-		step.hint_sign.demonstrate_sequence.connect(_on_demonstrate_sequence.bind(step))
+		if step.hint_sign:
+			step.hint_sign.demonstrate_sequence.connect(_on_demonstrate_sequence.bind(step))
 
 	_update_current_step()
 
@@ -73,16 +78,21 @@ func _find_objects() -> void:
 
 
 func _update_current_step() -> void:
+	var previous_step := _current_step
 	for i in range(_current_step, steps.size()):
-		# We find the next fire that is not solved, and that's the _current_step
-		if steps[i].hint_sign.is_solved:
+		# We find the next step that is not solved, and that's the _current_step
+		if steps[i].is_solved:
 			_current_step = i + 1
 			_position = 0
 		else:
 			break
 
+	if _current_step != previous_step:
+		progress_changed.emit()
+
 	if interactive_hints and _current_step < steps.size():
-		steps[_current_step].hint_sign.interactive_hint = true
+		if steps[_current_step].hint_sign:
+			steps[_current_step].hint_sign.interactive_hint = true
 
 
 func _debug(fmt: String, args: Array = []) -> void:
@@ -115,7 +125,10 @@ func _on_kicked(object: SequencePuzzleObject) -> void:
 		return
 
 	_debug("Finished sequence")
-	step.hint_sign.set_solved()
+	step.is_solved = true
+
+	if step.hint_sign:
+		step.hint_sign.set_solved()
 
 	# Emit step_solved signal to allow level designers to react to individual step completion
 	step_solved.emit(_current_step)
@@ -134,6 +147,16 @@ func get_progress() -> int:
 	return _current_step
 
 
+func set_progress(step: int) -> void:
+	for i in range(steps.size()):
+		if i <= step:
+			steps[i].is_solved = true
+			if steps[i].hint_sign:
+				steps[i].hint_sign.is_solved = true
+
+	_update_current_step()
+
+
 func is_solved() -> bool:
 	return _current_step == steps.size()
 
@@ -141,4 +164,6 @@ func is_solved() -> bool:
 func _on_demonstrate_sequence(step: SequencePuzzleStep) -> void:
 	for object in step.sequence:
 		await object.play()
-	step.hint_sign.demonstration_finished()
+
+	if step.hint_sign:
+		step.hint_sign.demonstration_finished()

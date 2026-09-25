@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://cqjngitoc5yx7" path="res://scenes/quests/template_quests/NO_EDIT/0_NO_EDIT_intro/NO_EDIT_intro_components/NO_EDIT_intro.dialogue" id="2_jlqtq"]
 [ext_resource type="SpriteFrames" uid="uid://vwf8e1v8brdp" path="res://scenes/quests/template_quests/NO_EDIT/NO_EDIT_player_components/NO_EDIT_player.tres" id="3_bol4n"]
 [ext_resource type="PackedScene" uid="uid://v3usqiwy5wpr" path="res://scenes/game_elements/props/decoration/rock/rock.tscn" id="6_f3ghw"]
+[ext_resource type="Script" uid="uid://c8405c212rbn6" path="res://scenes/game_elements/props/background_music/components/background_music.gd" id="7_pmwiv"]
+[ext_resource type="AudioStream" uid="uid://ofn2fhr2a2n8" path="res://assets/first_party/music/Threadbare Loop_Main_Intro_01.ogg" id="8_ilacg"]
 
 [sub_resource type="Animation" id="Animation_ld06i"]
 length = 0.001
@@ -128,24 +130,28 @@ editor_draw_limits = true
 [node name="OnTheGround" type="Node2D" parent="." unique_id=836096441]
 y_sort_enabled = true
 
-[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=169229228]
+[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=169229228 groups=["player"]]
 position = Vector2(400, 349)
 sprite_frames = ExtResource("3_bol4n")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="OnTheGround" unique_id=49807179]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_qdpvj")
+[node name="Rock" parent="OnTheGround" unique_id=912112339 instance=ExtResource("6_f3ghw")]
+position = Vector2(125, 403)
 
 [node name="ScreenOverlay" type="CanvasLayer" parent="." unique_id=826076597]
 
 [node name="Cinematic" type="Node2D" parent="." unique_id=1398238637 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_o3x1t")
 dialogue = ExtResource("2_jlqtq")
-animation_player = NodePath("../OnTheGround/AnimationPlayer")
+animation_player = NodePath("../AnimationPlayer")
 next_scene = "uid://coi4lvxir542y"
 metadata/_custom_type_script = "uid://x1mxt6bmei2o"
 
-[node name="Rock" parent="." unique_id=912112339 instance=ExtResource("6_f3ghw")]
-position = Vector2(125, 403)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=49807179]
+libraries/ = SubResource("AnimationLibrary_qdpvj")
+
+[node name="BackgroundMusic" type="Node" parent="." unique_id=691091775]
+script = ExtResource("7_pmwiv")
+stream = ExtResource("8_ilacg")
+metadata/_custom_type_script = "uid://c8405c212rbn6"

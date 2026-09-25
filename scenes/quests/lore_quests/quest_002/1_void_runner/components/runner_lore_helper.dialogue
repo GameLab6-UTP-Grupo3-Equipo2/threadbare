@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: The Threadbare Authors
+# SPDX-License-Identifier: MPL-2.0
+~ start
+I am a native from this archipelago.
+Do you want to hear my story?
+- Yes => help_accepted
+- No => help_denied
+
+~ help_accepted
+When I was young, I often wandered through these woods. I remember turning left to cross an old bridge, then heading left again into the forest.
+Among the trees, I would turn right and follow the trail of sand. Whenever I thought I was lost, I knew the signs to the Sanctuary would guide me home.
+Bye!
+do GameState.global.clear_help()
+=> END
+
+~ help_denied
+OK, bye!
+=> END

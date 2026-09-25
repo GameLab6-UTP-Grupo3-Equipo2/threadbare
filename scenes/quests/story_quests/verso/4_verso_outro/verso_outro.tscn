@@ -99,7 +99,7 @@ editor_draw_limits = true
 [node name="OnTheGround" type="Node2D" parent="." unique_id=946772914]
 y_sort_enabled = true
 
-[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=900465229]
+[node name="Character" type="AnimatedSprite2D" parent="OnTheGround" unique_id=900465229 groups=["player"]]
 position = Vector2(400, 349)
 sprite_frames = ExtResource("3_vpp8x")
 animation = &"idle"
@@ -110,7 +110,7 @@ autoplay = "idle"
 [node name="Cinematic" type="Node2D" parent="." unique_id=445286266]
 script = ExtResource("4_4mb86")
 dialogue = ExtResource("5_vpp8x")
-next_scene = "uid://cufkthb25mpxy"
+target = 1
 metadata/_custom_type_script = "uid://x1mxt6bmei2o"
 
 [node name="Trees" type="Node" parent="." unique_id=1243134056]
