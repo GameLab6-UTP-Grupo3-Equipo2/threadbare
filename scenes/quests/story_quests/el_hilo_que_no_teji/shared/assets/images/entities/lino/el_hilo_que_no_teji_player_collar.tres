@@ -128,7 +128,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g84ph")
 }],
-"loop": true,
+"loop": 1,
 "name": &"attack_01",
 "speed": 10.0
 }, {
@@ -145,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g84ph")
 }],
-"loop": true,
+"loop": 1,
 "name": &"attack_02",
 "speed": 10.0
 }, {
@@ -183,7 +183,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_du4ry")
 }],
-"loop": false,
+"loop": 0,
 "name": &"defeated",
 "speed": 5.0
 }, {
@@ -209,7 +209,7 @@ animations = [{
 "duration": 0.1,
 "texture": SubResource("AtlasTexture_aokvk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 3.0
 }, {
@@ -229,7 +229,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rn2yf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 10.0
 }]

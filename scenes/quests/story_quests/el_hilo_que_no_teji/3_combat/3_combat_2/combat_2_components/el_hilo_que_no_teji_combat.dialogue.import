@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b1e06iv7ljd3r"
+path="res://.godot/imported/el_hilo_que_no_teji_combat.dialogue-54cfd30175b2fc70c3c240aed62bc97d.tres"
+
+[deps]
+
+source_file="res://scenes/quests/story_quests/el_hilo_que_no_teji/3_combat/3_combat_2/combat_2_components/el_hilo_que_no_teji_combat.dialogue"
+dest_files=["res://.godot/imported/el_hilo_que_no_teji_combat.dialogue-54cfd30175b2fc70c3c240aed62bc97d.tres"]
+
+[params]
+
+defaults=true

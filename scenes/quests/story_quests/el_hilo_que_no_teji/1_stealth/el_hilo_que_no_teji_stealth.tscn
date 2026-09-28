@@ -1,25 +1,25 @@
 [gd_scene format=4 uid="uid://byj0ojaw486bm"]
 
 [ext_resource type="Script" uid="uid://dnp0tjloec2d7" path="res://scenes/game_logic/stealth_game_logic.gd" id="1_loqy2"]
-[ext_resource type="Script" uid="uid://cptwnb281n5nh" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/el_hilo_que_no_teji_stealth.gd" id="1_qshk0"]
-[ext_resource type="TileSet" uid="uid://32t5p1co051n" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_exterior_floors.tres" id="2_3ut71"]
+[ext_resource type="Script" uid="uid://cptwnb281n5nh" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/el_hilo_que_no_teji_stealth.gd" id="1_qshk0"]
+[ext_resource type="TileSet" uid="uid://32t5p1co051n" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_exterior_floors.tres" id="2_3ut71"]
 [ext_resource type="PackedScene" uid="uid://2rbpl811wlv1" path="res://scenes/game_elements/props/background_music/background_music.tscn" id="3_2owev"]
-[ext_resource type="TileSet" uid="uid://brtyjqpslh70g" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_shadows.tres" id="3_85ik4"]
-[ext_resource type="AudioStream" uid="uid://676ese8fg2qm" path="res://scenes/quests/story_quests/renya_beyond_sorrow/Complementos/music/7. Silent Longing (Loop).ogg" id="4_iekwq"]
-[ext_resource type="TileSet" uid="uid://ci0x5m62qamxl" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_cabana.tres" id="4_qshk0"]
-[ext_resource type="TileSet" uid="uid://d2mtxt1q8ymnc" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_elevation_2.tres" id="4_qxjpk"]
+[ext_resource type="TileSet" uid="uid://brtyjqpslh70g" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_shadows.tres" id="3_85ik4"]
+[ext_resource type="AudioStream" uid="uid://ce32tqw0wi6sg" path="res://scenes/quests/story_quests/renya_beyond_sorrow/Complementos/music/2. Whispers of Yesterday (Loop).ogg" id="4_iekwq"]
+[ext_resource type="TileSet" uid="uid://ci0x5m62qamxl" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_cabana.tres" id="4_qshk0"]
+[ext_resource type="TileSet" uid="uid://d2mtxt1q8ymnc" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_elevation_2.tres" id="4_qxjpk"]
 [ext_resource type="TileSet" uid="uid://do0ffypatd77h" path="res://tiles/bridges.tres" id="5_3ut71"]
 [ext_resource type="PackedScene" uid="uid://iu2q66clupc6" path="res://scenes/game_elements/characters/player/player.tscn" id="5_ac6ai"]
 [ext_resource type="Material" uid="uid://64aeyjitacv3" path="res://scenes/game_elements/props/void/void_chromakey_material.tres" id="6_qxjpk"]
 [ext_resource type="PackedScene" uid="uid://d37mebu7atru7" path="res://scenes/game_elements/characters/enemies/guard/guard.tscn" id="7_l1c3l"]
 [ext_resource type="PackedScene" uid="uid://7873qa54birk" path="res://scenes/game_elements/props/tree/tree.tscn" id="8_l1c3l"]
-[ext_resource type="TileSet" uid="uid://e7gpdr323xp3" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_enviroment.tres" id="8_qc1q3"]
-[ext_resource type="TileSet" uid="uid://cm47p7eqxfdds" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_ladders.tres" id="9_pls6f"]
-[ext_resource type="TileSet" uid="uid://bc2u83inkptpc" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_void_chromakey.tres" id="10_qc1q3"]
-[ext_resource type="TileSet" uid="uid://6wyq888afw6m" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_void_chromakey_walkable.tres" id="11_ujlnr"]
+[ext_resource type="TileSet" uid="uid://e7gpdr323xp3" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_enviroment.tres" id="8_qc1q3"]
+[ext_resource type="TileSet" uid="uid://cm47p7eqxfdds" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_ladders.tres" id="9_pls6f"]
+[ext_resource type="TileSet" uid="uid://bc2u83inkptpc" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_void_chromakey.tres" id="10_qc1q3"]
+[ext_resource type="TileSet" uid="uid://6wyq888afw6m" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_void_chromakey_walkable.tres" id="11_ujlnr"]
 [ext_resource type="PackedScene" uid="uid://fuhl3l6gxq5k" path="res://scenes/game_elements/props/collectible_item/collectible_item.tscn" id="12_pls6f"]
 [ext_resource type="AudioStream" uid="uid://dfhy5ea7edbxf" path="res://scenes/quests/story_quests/el_ojo_revelador/el_ojo_revelador_audios/Suspenso.wav" id="14_qc1q3"]
-[ext_resource type="SpriteFrames" uid="uid://du2byrgblsd4o" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_arbol_chapas.tres" id="14_ulphp"]
+[ext_resource type="SpriteFrames" uid="uid://du2byrgblsd4o" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_arbol_chapas.tres" id="14_ulphp"]
 [ext_resource type="SpriteFrames" uid="uid://co8o888wc5oc7" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/shadow_01/el_hilo_que_no_teji_shadow01_enemy.tres" id="15_l1c3l"]
 [ext_resource type="Script" uid="uid://x1mxt6bmei2o" path="res://scenes/ui_elements/cinematic/cinematic.gd" id="15_t4hu1"]
 [ext_resource type="SpriteFrames" uid="uid://pe5f4oarex8m" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/lino/el_hilo_que_no_teji_player_collar.tres" id="16_3x148"]
@@ -28,8 +28,8 @@
 [ext_resource type="SpriteFrames" uid="uid://c6sdvderulugs" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/shadow_05/el_hilo_que_no_teji_shadow05_enemy.tres" id="17_pljot"]
 [ext_resource type="Material" uid="uid://bi6a51mic57oq" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/mat_lino.tres" id="18_ulphp"]
 [ext_resource type="Shader" uid="uid://bshbghjfja2xq" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/mi_filtro_saturacion.gdshader" id="23_t4hu1"]
-[ext_resource type="AudioStream" uid="uid://ceuqs1f1aw6no" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/sounds/Suspenso.wav" id="24_iekwq"]
-[ext_resource type="Script" uid="uid://i0dutk8883vb" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/2_sequence_puzzle/el_hilo_que_no_teji_collectible.gd" id="24_t4hu1"]
+[ext_resource type="AudioStream" uid="uid://ceuqs1f1aw6no" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/sounds/entities/shadow/Suspenso.wav" id="24_iekwq"]
+[ext_resource type="Script" uid="uid://i0dutk8883vb" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/2_sequence_puzzle/sequence_puzzle_components/el_hilo_que_no_teji_collectible.gd" id="24_t4hu1"]
 [ext_resource type="SpriteFrames" uid="uid://bxo63gtawie3l" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/shadow_02/el_hilo_que_no_teji_shadow02_enemy.tres" id="24_vlrpm"]
 [ext_resource type="Resource" uid="uid://cfygswbl1532n" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/el_hilo_que_no_teji_collected.dialogue" id="25_4s4pt"]
 [ext_resource type="SpriteFrames" uid="uid://cs3d3dlkm2gqt" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/shadow_03/el_hilo_que_no_teji_shadow03_enemy.tres" id="25_4t4cg"]
@@ -37,13 +37,13 @@
 [ext_resource type="SpriteFrames" uid="uid://b3c54mgad0o45" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/shadow_04/el_hilo_que_no_teji_shadow04_enemy.tres" id="26_w06gk"]
 [ext_resource type="SpriteFrames" uid="uid://crrr8ncum86vx" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/luto/luto.tres" id="27_4t4cg"]
 [ext_resource type="Texture2D" uid="uid://5wscjc8yqqts" path="res://assets/first_party/collectibles/world_memory.png" id="27_rtdyd"]
-[ext_resource type="Shader" uid="uid://dn6w5kifgeusk" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/el_hilo_que_no_teji_sequence_puzzle.gdshader" id="32_n2hsx"]
+[ext_resource type="Shader" uid="uid://dn6w5kifgeusk" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/el_hilo_que_no_teji_sequence_puzzle.gdshader" id="32_n2hsx"]
 [ext_resource type="PackedScene" uid="uid://cfcgrfvtn04yp" path="res://scenes/ui_elements/hud/hud.tscn" id="32_ulphp"]
 [ext_resource type="FontFile" uid="uid://c3bb7lmvdqc5e" path="res://assets/third_party/fonts/jersey/Jersey20-Regular.ttf" id="33_dqnqs"]
 [ext_resource type="Script" uid="uid://d234e6xbur7bt" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/hud_stealth_progress.gd" id="33_eenpu"]
-[ext_resource type="PackedScene" uid="uid://cahsamhamvuqc" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/el_hilo_que_no_teji_sign.tscn" id="33_rtdyd"]
-[ext_resource type="Script" uid="uid://f56505k8qm17" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/saturacion_manager.gd" id="33_wv1mv"]
-[ext_resource type="Script" uid="uid://2ipchillwtnj" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/contador_hilos_label.gd" id="34_eenpu"]
+[ext_resource type="PackedScene" uid="uid://cahsamhamvuqc" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/el_hilo_que_no_teji_sign.tscn" id="33_rtdyd"]
+[ext_resource type="Script" uid="uid://f56505k8qm17" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/saturacion_manager.gd" id="33_wv1mv"]
+[ext_resource type="Script" uid="uid://2ipchillwtnj" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/contador_hilos_label.gd" id="34_eenpu"]
 [ext_resource type="Material" uid="uid://cht88adq0hk3f" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/1_stealth/stealth_components/mat_mundo.tres" id="34_uaq6i"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qshk0"]
@@ -632,6 +632,9 @@ collision_mask = 24
 [node name="DetectionArea" parent="EnemyGuards/GuardiaColina01" index="3" unique_id=885694991]
 scale = Vector2(1e-05, 1e-05)
 
+[node name="Light" parent="EnemyGuards/GuardiaColina01/DetectionArea" index="0" unique_id=366085581]
+visible = false
+
 [node name="AnimatedSprite2D" parent="EnemyGuards/GuardiaColina01" index="4" unique_id=616054452]
 sprite_frames = ExtResource("15_l1c3l")
 
@@ -654,6 +657,9 @@ collision_mask = 24
 
 [node name="DetectionArea" parent="EnemyGuards/GuardiaColina02" index="3" unique_id=885694991]
 scale = Vector2(1e-05, 1e-05)
+
+[node name="Light" parent="EnemyGuards/GuardiaColina02/DetectionArea" index="0" unique_id=366085581]
+visible = false
 
 [node name="AnimatedSprite2D" parent="EnemyGuards/GuardiaColina02" index="4" unique_id=616054452]
 sprite_frames = ExtResource("24_vlrpm")
@@ -678,6 +684,9 @@ collision_mask = 24
 [node name="DetectionArea" parent="EnemyGuards/GuardiaColina03" index="3" unique_id=885694991]
 scale = Vector2(1e-05, 1e-05)
 
+[node name="Light" parent="EnemyGuards/GuardiaColina03/DetectionArea" index="0" unique_id=366085581]
+visible = false
+
 [node name="AnimatedSprite2D" parent="EnemyGuards/GuardiaColina03" index="4" unique_id=616054452]
 sprite_frames = ExtResource("25_4t4cg")
 
@@ -700,6 +709,9 @@ collision_mask = 24
 
 [node name="DetectionArea" parent="EnemyGuards/GuardiaColina04" index="3" unique_id=885694991]
 scale = Vector2(1e-05, 1e-05)
+
+[node name="Light" parent="EnemyGuards/GuardiaColina04/DetectionArea" index="0" unique_id=366085581]
+visible = false
 
 [node name="AnimatedSprite2D" parent="EnemyGuards/GuardiaColina04" index="4" unique_id=616054452]
 sprite_frames = ExtResource("26_w06gk")
@@ -725,6 +737,9 @@ collision_mask = 24
 [node name="DetectionArea" parent="EnemyGuards/GuardiaColina05" index="3" unique_id=885694991]
 scale = Vector2(1e-05, 1e-05)
 
+[node name="Light" parent="EnemyGuards/GuardiaColina05/DetectionArea" index="0" unique_id=366085581]
+visible = false
+
 [node name="AnimatedSprite2D" parent="EnemyGuards/GuardiaColina05" index="4" unique_id=616054452]
 sprite_frames = ExtResource("17_pljot")
 flip_h = true
@@ -748,6 +763,9 @@ collision_mask = 24
 
 [node name="DetectionArea" parent="EnemyGuards/GuardiaColina05/Luto-Guard" index="3" unique_id=885694991]
 scale = Vector2(1e-05, 1e-05)
+
+[node name="Light" parent="EnemyGuards/GuardiaColina05/Luto-Guard/DetectionArea" index="0" unique_id=366085581]
+visible = false
 
 [node name="AnimatedSprite2D" parent="EnemyGuards/GuardiaColina05/Luto-Guard" index="4" unique_id=616054452]
 sprite_frames = ExtResource("27_4t4cg")
@@ -773,7 +791,7 @@ collected_dialogue = ExtResource("25_4s4pt")
 dialogue_title = &"hilo_1"
 
 [node name="InteractArea" parent="CollectibleItem" index="0" unique_id=1327503985]
-action = "Collect Memory"
+action_text = "Collect Memory"
 
 [node name="Sprite2D" parent="CollectibleItem" index="2" unique_id=1620327010]
 texture = ExtResource("27_rtdyd")
@@ -793,7 +811,7 @@ collected_dialogue = ExtResource("25_4s4pt")
 dialogue_title = &"hilo_2"
 
 [node name="InteractArea" parent="CollectibleItem2" index="0" unique_id=1327503985]
-action = "Collect Memory"
+action_text = "Collect Memory"
 
 [node name="Sprite2D" parent="CollectibleItem2" index="2" unique_id=1620327010]
 texture = ExtResource("27_rtdyd")
@@ -812,7 +830,7 @@ collected_dialogue = ExtResource("25_4s4pt")
 dialogue_title = &"hilo_3"
 
 [node name="InteractArea" parent="CollectibleItem3" index="0" unique_id=1327503985]
-action = "Collect Memory"
+action_text = "Collect Memory"
 
 [node name="Sprite2D" parent="CollectibleItem3" index="2" unique_id=1620327010]
 texture = ExtResource("27_rtdyd")
@@ -836,6 +854,7 @@ shape = SubResource("RectangleShape2D_qshk0")
 [node name="LadridoLuto" type="AudioStreamPlayer" parent="ZonaClimax" unique_id=839935419]
 
 [node name="Niebla" type="CanvasLayer" parent="." unique_id=1203319026]
+visible = false
 follow_viewport_enabled = true
 
 [node name="ColorRectNeblina" type="ColorRect" parent="Niebla" unique_id=1091306329]

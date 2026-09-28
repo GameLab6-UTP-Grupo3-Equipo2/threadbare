@@ -8,7 +8,7 @@ const ITEM_SLOT: PackedScene = preload("uid://1mjm4atk2j6e")
 var fragmentos_recibidos: int = 0
 
 func _ready() -> void:
-	if not GameState.current_quest or GameState.current_quest.threads_to_collect == 0:
+	if not GameState.quest or GameState.quest.quest.threads_to_collect == 0:
 		visible = false
 		return
 
@@ -17,7 +17,7 @@ func _ready() -> void:
 	for _i in slots_visuales:
 		items_container.add_child(ITEM_SLOT.instantiate())
 
-	var items_collected := GameState.items_collected()
+	var items_collected: Array[InventoryItem] = GameState.quest.inventory.items
 	fragmentos_recibidos = items_collected.size()
 	var hilos_completos = fragmentos_recibidos / 3
 
@@ -27,8 +27,8 @@ func _ready() -> void:
 			slot.start_as_filled(items_collected[0])
 			_pintar_hilo(slot)
 
-	GameState.item_collected.connect(self._on_item_collected)
-	GameState.item_consumed.connect(self._on_item_consumed)
+	GameState.quest.inventory.item_collected.connect(self._on_item_collected)
+	GameState.quest.inventory.item_consumed.connect(self._on_item_consumed)
 
 func _on_item_collected(item: InventoryItem) -> void:
 	fragmentos_recibidos += 1
