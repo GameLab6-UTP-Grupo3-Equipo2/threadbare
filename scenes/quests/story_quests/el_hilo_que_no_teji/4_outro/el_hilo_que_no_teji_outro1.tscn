@@ -1,16 +1,20 @@
 [gd_scene format=4 uid="uid://b2v6dyhgg16l4"]
 
 [ext_resource type="TileSet" uid="uid://b8qnr0owsbhhn" path="res://tiles/exterior_floors.tres" id="1_f8tbp"]
-[ext_resource type="TileSet" uid="uid://ci0x5m62qamxl" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_cabana.tres" id="2_3exgg"]
-[ext_resource type="TileSet" uid="uid://bmxkk10m81ec5" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_furnitures.tres" id="3_nxib4"]
+[ext_resource type="PackedScene" uid="uid://2rbpl811wlv1" path="res://scenes/game_elements/props/background_music/background_music.tscn" id="1_v5jcu"]
+[ext_resource type="TileSet" uid="uid://ci0x5m62qamxl" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_cabana.tres" id="2_3exgg"]
+[ext_resource type="TileSet" uid="uid://bmxkk10m81ec5" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_furnitures.tres" id="3_nxib4"]
+[ext_resource type="AudioStream" uid="uid://crrn0h8gak1t6" path="res://scenes/quests/story_quests/renya_beyond_sorrow/Complementos/music/1. Echoes of Solitude (Loop).ogg" id="3_yedwo"]
 [ext_resource type="SpriteFrames" uid="uid://d1jsrwm2u7mfr" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/lino/el_hilo_que_no_teji_player.tres" id="4_xyt4v"]
 [ext_resource type="SpriteFrames" uid="uid://cjx0qtpsps4pt" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/manchitas/manchitas_collar_bark.tres" id="5_ir6uh"]
 [ext_resource type="Texture2D" uid="uid://clda4eprvw2gr" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/entities/manchitas/manchitas_collar.png" id="6_o8n81"]
-[ext_resource type="SpriteFrames" uid="uid://cyxi4gkgj3mt2" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_tree_spriteframes_blue.tres" id="7_hsrkj"]
-[ext_resource type="SpriteFrames" uid="uid://dk8csh47w54tt" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_tree_spriteframes_yellow.tres" id="8_owpuo"]
-[ext_resource type="SpriteFrames" uid="uid://dx33pybavawht" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/tiles/el_hilo_que_no_teji_tree_spriteframes_green.tres" id="9_liv05"]
-[ext_resource type="Script" uid="uid://byfgy3265rxn7" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/4_outro/OutroDirector.gd" id="10_oclt6"]
-[ext_resource type="PackedScene" uid="uid://3jye8tk0fbof" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/0_intro/intro_components/FlashOverlay.tscn" id="11_0h0gv"]
+[ext_resource type="SpriteFrames" uid="uid://cyxi4gkgj3mt2" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_tree_spriteframes_blue.tres" id="7_hsrkj"]
+[ext_resource type="SpriteFrames" uid="uid://dk8csh47w54tt" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_tree_spriteframes_yellow.tres" id="8_owpuo"]
+[ext_resource type="SpriteFrames" uid="uid://dx33pybavawht" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/assets/images/tiles/el_hilo_que_no_teji_tree_spriteframes_green.tres" id="9_liv05"]
+[ext_resource type="Script" uid="uid://byfgy3265rxn7" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/4_outro/outro_components/OutroDirector.gd" id="10_oclt6"]
+[ext_resource type="PackedScene" uid="uid://3jye8tk0fbof" path="res://scenes/quests/story_quests/el_hilo_que_no_teji/shared/components/FlashOverlay.tscn" id="11_0h0gv"]
+[ext_resource type="PackedScene" uid="uid://crqjcicx0vdu" path="res://scenes/game_elements/props/decoration/bush/bush.tscn" id="14_2v4yb"]
+[ext_resource type="SpriteFrames" uid="uid://ckf0ncgsrnhek" path="res://scenes/game_elements/props/decoration/bush/components/bush_spriteframes_purple_large.tres" id="15_yedwo"]
 
 [sub_resource type="Animation" id="Animation_ugj03"]
 length = 0.001
@@ -610,8 +614,38 @@ offset_right = -0.44006348
 offset_bottom = -0.2800293
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 text = "Gracias por tejer...
 
 el hilo que no tejí."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BackgroundMusic" parent="." unique_id=1461759951 instance=ExtResource("1_v5jcu")]
+stream = ExtResource("3_yedwo")
+
+[node name="Arbustos" type="Node2D" parent="BackgroundMusic" unique_id=126720662]
+
+[node name="Bush" parent="BackgroundMusic/Arbustos" unique_id=1924859315 instance=ExtResource("14_2v4yb")]
+position = Vector2(612, 199)
+sprite_frames = ExtResource("15_yedwo")
+
+[node name="Bush2" parent="BackgroundMusic/Arbustos" unique_id=2262905 instance=ExtResource("14_2v4yb")]
+position = Vector2(731, 357)
+scale = Vector2(0.8, 0.8)
+sprite_frames = ExtResource("15_yedwo")
+
+[node name="Bush3" parent="BackgroundMusic/Arbustos" unique_id=358860000 instance=ExtResource("14_2v4yb")]
+position = Vector2(691.00006, 201.00002)
+scale = Vector2(0.65, 0.65)
+sprite_frames = ExtResource("15_yedwo")
+
+[node name="Bush4" parent="BackgroundMusic/Arbustos" unique_id=1884093606 instance=ExtResource("14_2v4yb")]
+position = Vector2(577.99994, 372)
+scale = Vector2(0.8, 0.8)
+sprite_frames = ExtResource("15_yedwo")
+
+[node name="Bush5" parent="BackgroundMusic/Arbustos" unique_id=1686638002 instance=ExtResource("14_2v4yb")]
+position = Vector2(671.99976, 239)
+scale = Vector2(0.45, 0.45)
+sprite_frames = ExtResource("15_yedwo")
